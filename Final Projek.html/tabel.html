@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<body>
+
+    <div class="judul">
+        <h1>FINAL PROJECT KELAS PRABOOTCAMP ISHAM</h1>
+        <h2>KALENDER MATERI</h2>
+    </div>
+
+    <table>
+        <!-- HEADING -->
+        <tr>
+            <th>h1</th>
+            <th>h2</th>
+            <th>h3</th>
+            <th>h4</th>
+            <th>h5</th>
+            <th>h6</th>
+        </tr>
+        <tr class="tengah">
+            <td>
+                <h1>Contoh Heading 1</h1>
+            </td>
+            <td>
+                <h2>Contoh Heading 2</h2>
+            </td>
+            <td>
+                <h3>Contoh Heading 3</h3>
+            </td>
+            <td>
+                <h4>Contoh Heading 4</h4>
+            </td>
+            <td>
+                <h5>Contoh Heading 5</h5>
+            </td>
+            <td>
+                <h6>Contoh Heading 6</h6>
+            </td>
+        </tr>
+
+        <!-- TEXT FORMATTING -->
+        <tr>
+            <th>Bold</th>
+            <th>Italic</th>
+            <th>Mark</th>
+            <th>Sub/Sup</th>
+            <th>Del</th>
+            <th>Underline</th>
+        </tr>
+        <tr>
+            <td>Ini Text Formating <b>Tebal</b></td>
+            <td>Ini Text Formating <i>Miring</i></td>
+            <td><mark>Ini Text Formating Tanda</mark></td>
+            <td>Ini Text Formating X<sup>2</sup>dan X<sub>2</sub></td>
+            <td><del>Ini Text Formating Garis Tengah</del></td>
+            <td>Ini Text Formating <u>Garis Bawah</u></td>
+        </tr>
+
+        <!-- ELEMEN HTML -->
+        <tr>
+            <th>Paragraph</th>
+            <th>Span</th>
+            <th>Bullet &amp; Numbering</th>
+            <th>Image</th>
+            <th>Form</th>
+            <th>Hyperlink</th>
+        </tr>
+        <tr>
+            <!-- Paragraph -->
+            <td>
+                <p>Ini merupakan Attribut Paragraf</p>
+            </td>
+
+            <!-- Span -->
+            <td>Span dapat di gunakan untuk <span class="merah">menyisipkan kalimat</span> di dalam semua attribut</td>
+
+            <!-- Bullet & Numbering -->
+            <td>
+                <ul>
+                    <li>ul dipakai untuk membuat bullet</li>
+                </ul>
+                <ol>
+                    <li>sedangkan ol dipakai untuk numbering</li>
+                </ol>
+            </td>
+
+            <!-- Image: ganti dengan nama file gambarmu -->
+            <td><img src="../img/perlengkapan kamera.jpg"
+                    alt="Contoh Gambar"></td>
+
+            <!-- Form -->
+            <td>
+                <form id="formLogin">
+                    <label for="nama">Nama:</label><br>
+                    <input type="text" id="nama" name="nama"><br>
+                    <label for="password">Password:</label><br>
+                    <input type="password" id="password" name="password"><br>
+                    <button type="submit">Submit 😡🤬!!</button>
+                </form>
+            </td>
+
+            <!-- Hyperlink -->
+            <td><a href="layout.html">Klik untuk kembali mengenal saddad😹</a></td>
+        </tr>
+    </table>
+
+    <script>
+        // Form tidak reload halaman, hanya menampilkan pesan
+        document.getElementById("formLogin").addEventListener("submit", function (e) {
+            e.preventDefault();
+            let nama = document.getElementById("nama").value.trim();
+
+            if (nama === "") {
+                alert("Nama belum diisi!");
+            } else {
+                alert("Halo, " + nama + "! Form berhasil dikirim.");
+            }
+        });
+    </script>
+
+Ishamm:
+ <style>
+        body {
+            background: rgb(215, 215, 215);
+            margin: 8px;
+            font-family: "Times New Roman", serif;
+        }
+
+        .judul {
+            text-align: center;
+            font-family: Verdana, Arial, sans-serif;
+        }
+
+        .judul h1 {
+            font-size: 2rem;
+            margin: 6px 0 0;
+        }
+
+        .judul h2 {
+            font-size: 1.5rem;
+            margin: 0 0 6px;
+        }
+
+        table {
+            width: 100%;
+            border: 1px solid black;
+            border-collapse: separate;
+            border-spacing: 2px;
+        }
+
+        th,
+        td {
+            border: 1px solid rgb(0, 0, 0);
+            padding: 6px;
+            width: 16.66%;
+        }
+
+        th {
+            text-align: center;
+        }
+
+        td {
+            vertical-align: middle;
+            font-size: 1.1rem;
+        }
+
+        .tengah {
+            text-align: center;
+        }
+
+        /* heading di dalam sel */
+        td h1,
+        td h2,
+        td h3,
+        td h4,
+        td h5,
+        td h6 {
+            margin: 0;
+        }
+
+        .merah {
+            background: rgb(255, 255, 255);
+        }
+
+        td ul,
+        td ol {
+            margin: 10px 0;
+            padding-left: 28px;
+        }
+
+        td img {
+            width: 100px;
+            height: 120px;
+            object-fit: cover;
+            display: block;
+            margin: 0 auto;
+        }
+
+        td form {
+            text-align: center;
+        }
+
+        td input {
+            margin-bottom: 4px;
+        }
+    </style>
+</body>
+</html>

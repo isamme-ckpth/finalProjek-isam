@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Rating Makanan</title>
+</head>
+<body>
+    <h2>Rating makanan</h2>
+
+     <label for="rating">masukkan rating</label>
+     <input type="number" id="rating" placeholder="masukkan rating">
+     <button onclick="cekRasa()">cekRasa</button>
+
+     <p id="hasil"></p>
+     <script>
+        function cekRasa() {
+            var rating = Number(document.getElementById("rating").value);
+            var hasil = "";
+
+            if (rating >= 9) {
+                hasil = "sangat enak dan rekomen";
+            } else if (rating >= 8) {
+                hasil = "enak";
+            } else if (rating >= 6) {
+                hasil = "cukup enak";
+            } else if (rating >= 4) {
+                hasil = "rasa kurang enak";
+            } else if (rating >= 2) {
+                hasil = "tidak layak konsumsi";
+            } else {
+                hasil = "tidak enak";
+            }
+            
+            document.getElementById("hasil").innerHTML = hasil;
+        }
+     </script>
+
+
+</body>
+</html>

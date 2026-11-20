@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+    .container {
+        width: 100%;
+        max-width: 700px;
+        padding: 24px;
+        text-align: center;
+    }
+
+    .container h2 {
+        margin-bottom: 24px;
+        font-size: 2rem;
+        color: #fbbf24;
+    }
+
+    .lampu-wrap {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .lampu-box {
+        background: #728fb8;
+        border: 1px solid yellow;
+        border-radius: 14px;
+        padding: 18px 12px;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .lampu-box:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 20px black;
+    }
+
+    .lampu-box img {
+        display: block;
+        width: 120px;
+        height: 120px;
+        object-fit: contain;
+        margin: 0 auto 12px;
+    }
+
+    .lampu-box p {
+        margin: 6px 0;
+        font-size: 0.95rem;
+    }
+
+    .lampu-box p[id^="status"] {
+        font-weight: bold;
+    }
+
+    .lampu-box p[id^="timer"] {
+        min-height: 1.4em;
+        color: white;
+        font-size: 0.85rem;
+    }
+
+    .lampu-box button {
+        margin-top: 10px;
+        padding: 10px 16px;
+        border: none;
+        border-radius: 8px;
+        background: white;
+        color: black;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+
+    .lampu-box button:hover {
+        background: grey;
+    }
+
+    .lampu-box button:active {
+        transform: scale(0.96);
+    }
+</style>
+
+<body>
+    <br>
+    <br>
+    <button>
+    <a href="layout.html">Kembali Beranda</a>
+    </button>
+    <div class="card" id="lampu">
+        <h2>Kontrol 4 Lampu</h2>
+
+        <div class="lampu-wrap">
+
+            <div class="lampu-box">
+                <img id="gambar1" src="../Day 9/Lampu Off/6226486330817366712.jpg" alt="Lampu 1">
+                <p id="status1">Status: Mati</p>
+                <p id="timer1"></p>
+                <button id="tombol1" onclick="toggleLampu(1)">Nyalakan Lampu 1</button>
+            </div>
+
+            <div class="lampu-box">
+                <img id="gambar2" src="../Day 9/Lampu Off/6226486330817366712.jpg" alt="Lampu 2">
+                <p id="status2">Status: Mati</p>
+                <p id="timer2"></p>
+                <button id="tombol2" onclick="toggleLampu(2)">Nyalakan Lampu 2</button>
+            </div>
+
+            <div class="lampu-box">
+                <img id="gambar3" src="../Day 9/Lampu Off/6226486330817366712.jpg" alt="Lampu 3">
+                <p id="status3">Status: Mati</p>
+                <p id="timer3"></p>
+                <button id="tombol3" onclick="toggleLampu(3)">Nyalakan Lampu 3</button>
+            </div>
+
+            <div class="lampu-box">
+                <img id="gambar4" src="../Day 9/Lampu Off/6226486330817366712.jpg" alt="Lampu 4">
+                <p id="status4">Status: Mati</p>
+                <p id="timer4"></p>
+                <button id="tombol4" onclick="toggleLampu(4)">Nyalakan Lampu 4</button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script>
+        const DURASI = 5;               // lama lampu menyala (detik)
+        let nyala = [false, false, false, false, false];   // status tiap lampu (indeks 1-4)
+        let timers = {};                // menyimpan timer tiap lampu
+
+        function toggleLampu(n) {
+            if (nyala[n]) {
+                matikanLampu(n);
+            } else {
+                hidupkanLampu(n);
+            }
+        }
+
+        function hidupkanLampu(n) {
+            let gambar = document.getElementById("gambar" + n);
+            let status = document.getElementById("status" + n);
+            let timerText = document.getElementById("timer" + n);
+            let tombol = document.getElementById("tombol" + n);
+
+            gambar.src = "../Day 9/Lampu On/6226486330817366713.jpg";
+            status.innerHTML = "Status: Menyala";
+            tombol.innerHTML = "Matikan Lampu " + n;
+            nyala[n] = true;
+
+            let sisa = DURASI;
+            timerText.innerHTML = "Mati otomatis dalam " + sisa + " detik";
+
+            timers[n] = setInterval(function () {
+                sisa--;
+                if (sisa > 0) {
+                    timerText.innerHTML = "Mati otomatis dalam " + sisa + " detik";
+                } else {
+                    matikanLampu(n);
+                }
+            }, 1000);
+        }
+
+        function matikanLampu(n) {
+            clearInterval(timers[n]);
+
+            document.getElementById("gambar" + n).src = "../Day 9/Lampu Off/6226486330817366712.jpg";
+            document.getElementById("status" + n).innerHTML = "Status: Mati";
+            document.getElementById("timer" + n).innerHTML = "";
+            document.getElementById("tombol" + n).innerHTML = "Nyalakan Lampu " + n;
+            nyala[n] = false;
+        }
+    </script>
+</body>
+</html>

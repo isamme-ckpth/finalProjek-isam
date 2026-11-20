@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="tampilkanArray()">
+      <h1>Nama-nama Hewan</h1>
+    <p id="Pertama"></p>
+    <p id="Kedua"></p>
+    <p id="Hapus"></p>
+    <p id="HapusPertama"></p>
+    <p id="Panjang"></p>
+    <p id="SemuaHewan"></p>
+    <script>
+        function tampilkanArray() {
+            // membuat array sederhana berisi nama-nama buah
+            var hewan = ["Gajah", "Ikan", "Jerapah", "Monyet", "Katak", "Buaya", "Cicak", "Lalat", "Kuceng", "Iguana", "Singa",];
+            // mengakses elemen dari array
+            document.getElementById("Pertama").innerHTML = "Hewan Pertama: " + hewan[0];
+            document.getElementById("Kedua").innerHTML = "Hewan Kedua: " + hewan[1];
+            // menambahkan buah baru ke array
+            hewan.push("Kucing"); // 'push' digunakan untuk menambahkan item
+            // menghapus -buah terakhir dari array menggunakan pop
+            var hewanTerakhir = hewan.pop(); // 'pop' digunakan untuk menghapus buah terakhir
+            // menghapus buah pertama dari array menggunakan pop
+            var hewanPertama = hewan.shift(); // 'shift' digunakan untuk menghapus buah pertama
+            // menampilkan hasil setelah menghapus buah terakhir
+            document.getElementById("Hapus").innerHTML = "Hewan Terakhir Yang Dihapus: " + hewanTerakhir;
+            // menampilkan hasil setelah menghapus buah pertama
+            document.getElementById("HapusPertama").innerHTML = "Hewan Pertama Yang Dihapus: " + hewanPertama;
+            // menampilkan panjang array dan semua elemennya
+            document.getElementById("Panjang").innerHTML = "Total Hewan Setelah Penghapusan: " + hewan.length; // 'lenght' digunakkan untuk menghitung jualan buah yang tersisa
+            document.getElementById("SemuaHewan").innerHTML = "Semua Hewan: " + hewan.join(", ");
+        
+        }
+    </script>    
+</body>
+</html>

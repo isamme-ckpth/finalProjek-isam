@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bualn</title>
+</head>
+
+<body>
+    <h2>Bulan</h2>
+
+    <label for="Bualn">masukkan Bulan</label>
+    <input type="Bulan" id="Bulan" placeholder="masukkan Bualn">
+    <button onclick="cekBULAN()">cek bulan</button>
+
+    <p id="hasilbulan"></p>
+    <script>
+        function cekBULAN() {
+
+            var nomerbulan = parseInt(document.getElementById("Bulan").value);
+            var hasil = "";
+
+            switch (nomerbulan) {
+                case 1:
+                    hasil = "bulan januari.";
+                    break;
+                case 2:
+                    hasil = "bulan februari.";
+                    break;
+                case 3:
+                    hasil = "bulan Maret.";
+                    break;
+                case 4:
+                    hasil = "bulan April.";
+                    break;
+                case 5:
+                    hasil = "bulan Mei.";
+                    break;
+                case 6:
+                    hasil = "bulan Juni.";
+                    break;
+                case 7:
+                    hasil = "bulan Juli.";
+                    break;
+                case 8:
+                    hasil = "bulan Agustus.";
+                    break;
+                case 9:
+                    hasil = "bulan September.";
+                    break;
+                case 10:
+                    hasil = "bulan Oktober.";
+                    break;
+                case 11:
+                    hasil = "bulan November.";
+                    break;
+                case 12:
+                    hasil = "bulan Desember.";
+                    break;
+                default:
+                    hasil = "tidak di temukan bulan di angka ini atau tidak valid.";
+
+            }
+            document.getElementById("hasilbulan").innerHTML = hasil;
+        }
+    </script>
+</body>
+
+</html>

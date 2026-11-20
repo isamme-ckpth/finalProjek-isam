@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Biodata Siswa</h1>
+
+    <div class="identitas">Nama : notfound?</div>
+    <div class="identitas">Kelas : X</div>
+    <div class="identitas">Jurusan : Teknik Komunikasi Jaringan</div>
+
+    <input type="nama" id="nama" placeholder="masukkan nama">
+    <button onclick="tampilkanbiodata()">tampilkan biodata</button>
+
+    <h2>hasil biodata</h2>
+    <p id="hasil"></p>
+
+   <script>
+
+        // Function untuk menampilkan biodata
+        function tampilkanbiodata() {
+
+            // Mengambil nama dari input
+            let nama = document.getElementById("nama").value;
+
+            // Mengambil elemen berdasarkan class
+            let identitas = document.getElementsByClassName("identitas");
+
+            // Memeriksa apakah nama kosong
+            if (nama === "") {
+                alert("Nama tidak boleh kosong!");
+                return false;
+            } else {
+
+                // Menampilkan pesan
+                alert("Selamat datang, " + nama);
+
+                // Mengambil isi identitas
+                    let kelas = identitas[1].textContent;
+                    let jurusan = identitas[2].textContent;
+
+                // Menampilkan biodata
+                document.getElementById("hasil").innerHTML =
+                    "Nama: " + nama + "<br>" +
+                    kelas + "<br>" +
+                    jurusan;
+
+                return true;
+            }
+        }
+
+    </script>
+</body>
+</html>
